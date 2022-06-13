@@ -9,6 +9,7 @@ matplotlib
 plotly
 streamlit
 shapely
+shapely.wkt
 requests
 circlify
 folium
