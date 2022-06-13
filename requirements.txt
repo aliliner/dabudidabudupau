@@ -11,7 +11,6 @@ streamlit
 shapely
 requests
 circlify
-sqlite3
 folium
 scrapy
 json
