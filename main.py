@@ -573,10 +573,12 @@ with st.echo(code_location = 'below'):
 
     var_list = ['PartOfTheWorld','Appellation', 'Volume', 'ABV',  'GrapeSortNumber', 'Maturity', 'MinPotentialStorage']
     knn.fit(df10[var_list], df10[['Price']])
-
+    
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     df10.plot.scatter(x = 'ABV', y = 'Price', color = '#C70039', alpha = 0.7)
     plt.plot(df10['ABV'], knn.predict(df10[var_list]), 'o', color = '#FFC300', alpha = 0.1, lw = 1)
     st.pyplot()
+    st.set_option('deprecation.showPyplotGlobalUse', False)
 
     st.markdown("""
     Теперь будем учить и тестировать модель на разных DataFrame, для чего разобьем первоначальный с помощью train_test_split.
@@ -586,9 +588,11 @@ with st.echo(code_location = 'below'):
     knn1              = KNeighborsRegressor(n_neighbors = 10)
 
     knn1.fit(train_df[var_list], train_df[['Price']])
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     test_df.plot.scatter(x = 'ABV', y = 'Price', color = '#C70039', alpha = 0.7)
     plt.plot(test_df['ABV'], knn1.predict(test_df[var_list]), 'o', color = '#FFC300', alpha = 0.1, lw = 1)
     st.pyplot()
+    st.set_option('deprecation.showPyplotGlobalUse', False)
 
     st.markdown("""
     Как мы видим, предсказания довольно точны. Давайте для интереса проверим таккже предскажания на основании Возраста и Потенциального хранения вина.
@@ -601,9 +605,11 @@ with st.echo(code_location = 'below'):
         knn2 = KNeighborsRegressor(n_neighbors=10)
 
         knn2.fit(train_df[var_list], train_df[['Price']])
+        st.set_option('deprecation.showPyplotGlobalUse', False)
         test_df.plot.scatter(x='Maturity', y='Price', color='#C70039', alpha=0.7)
         plt.plot(test_df['Maturity'], knn2.predict(test_df[var_list]), 'o', color='#FFC300', alpha=0.1, lw=1)
         st.pyplot()
+        st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
     with col2:
@@ -611,9 +617,11 @@ with st.echo(code_location = 'below'):
         knn3 = KNeighborsRegressor(n_neighbors=10)
 
         knn3.fit(train_df[var_list], train_df[['Price']])
+        st.set_option('deprecation.showPyplotGlobalUse', False)
         test_df.plot.scatter(x='MinPotentialStorage', y='Price', color='#C70039', alpha=0.7)
         plt.plot(test_df['MinPotentialStorage'], knn3.predict(test_df[var_list]), 'o', color='#FFC300', alpha=0.1, lw=1)
         st.pyplot()
+        st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
     st.markdown("""
@@ -688,8 +696,7 @@ with st.echo(code_location = 'below'):
     gdf2 = gpd.GeoDataFrame(df_msk, geometry = 'poly')
 
     gdf3 = gdf1.sjoin(gdf2, how = "right", predicate = 'intersects')
-    gdf3 = gpd.GeoDataFrame(gdf3[['id', 'name','properties.name','properties.description', 'properties.CompanyMetaData.address', 'properties.CompanyMetaData.Hours.text',  'coordinates_lon','coordinates_lat']],
-                            geometry = gpd.points_from_xy(gdf3['coordinates_lon'], gdf3['coordinates_lat']))
+    gdf3 = gpd.GeoDataFrame(gdf3[['id', 'name','properties.name','properties.description', 'properties.CompanyMetaData.address', 'properties.CompanyMetaData.Hours.text',  'coordinates_lon','coordinates_lat']], geometry = gpd.points_from_xy(gdf3['coordinates_lon'], gdf3['coordinates_lat']))
 
     st.markdown("""
     Из изначального датафрейма видно, что подавляющее большинство фирменных винотек сосредоточено на территории Москвы.
@@ -699,12 +706,12 @@ with st.echo(code_location = 'below'):
     недавно). Поэтому тут другой алгоритм работы (в коде видно отличия), другие сложности и другой подход).
     """)
 
-    st.set_option('deprecation.showPyplotGlobalUse', False)
+    
     wineries_counts  = gdf3['name'].value_counts()
     fig, ax          = plt.subplots(figsize = (13, 13))
     map1             = gdf2.set_index('name').assign(wineries_counts = wineries_counts)
     map1.plot(column = wineries_counts, legend = True, cmap = 'Reds', edgecolor='black')
-    st.set_option('deprecation.showPyplotGlobalUse', False)
+    
     st.pyplot()
 
     st.markdown("""
