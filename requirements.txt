@@ -13,7 +13,6 @@ requests
 circlify
 folium
 scrapy
-json
 re
 sklearn
 streamlit_folium
