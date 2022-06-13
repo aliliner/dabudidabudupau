@@ -1,25 +1,23 @@
-import numpy                   as np
-import pandas                  as pd
-import networkx                as nx
-import streamlit               as st
-import geopandas               as gpd
-import plotly.express          as px
-import statsmodels.api         as sm
-import matplotlib.pyplot       as plt
-import plotly.graph_objects    as go
-import streamlit.components.v1 as components
-import shapely.geometry
-import requests
-import circlify
-import sqlite3
-import folium
-import scrapy
-import json
-import re
-
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors       import KNeighborsRegressor
-from shapely.geometry        import Polygon, Point
-from streamlit_folium        import folium_static
-from pyvis.network           import Network
-from bs4                     import BeautifulSoup
+numpy
+pandas
+networkx
+streamlit
+geopandas
+plotly.express
+statsmodels.api
+matplotlib.pyplot
+plotly.graph_objects
+streamlit.components.v1
+shapely.geometry
+requests
+circlify
+sqlite3
+folium
+scrapy
+json
+re
+sklearn.model_selection
+sklearn.neighbors
+streamlit_folium
+pyvis.network        
+bs4
