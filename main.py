@@ -9,7 +9,6 @@ import matplotlib.pyplot       as plt
 import plotly.graph_objects    as go
 import streamlit.components.v1 as components
 import folium
-import json
 import re
 
 from sklearn.model_selection import train_test_split
