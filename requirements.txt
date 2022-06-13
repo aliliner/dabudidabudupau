@@ -15,8 +15,4 @@ folium
 sklearn
 streamlit_folium
 pyvis
-altair
-fiona
-pyproj
-gdal
 geopandas
