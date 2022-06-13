@@ -3,8 +3,6 @@ pandas
 networkx
 streamlit
 geopandas
-gdal
-fiona
 plotly
 statsmodels
 matplotlib
