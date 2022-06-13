@@ -20,9 +20,6 @@ from pyvis.network           import Network
 
 
 
-
-
-
 df   = pd.read_csv('winedata.csv')
 df4  = pd.read_csv('codes_cntr.csv')
 df11 = pd.read_csv('wineries.csv')
