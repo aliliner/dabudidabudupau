@@ -8,6 +8,7 @@ import statsmodels.api         as sm
 import matplotlib.pyplot       as plt
 import plotly.graph_objects    as go
 import streamlit.components.v1 as components
+import shapely.wkt
 import folium
 import re
 
