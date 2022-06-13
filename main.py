@@ -687,7 +687,7 @@ with st.echo(code_location='below'):
     # Moscow geojson and work with it is in wineries_start.ry
 
     for i in range(125):
-        df_msk['polygon'] = shapely.wkt.loads(msk_data['poly'][i])
+        df_msk['polygon'] = shapely.wkt.loads(df_msk['poly'][i])
 
 
     gdf2 = gpd.GeoDataFrame(df_msk, geometry = 'polygon')
