@@ -20,9 +20,10 @@ from pyvis.network           import Network
 
 
 
-df   = pd.read_csv('winedata.csv')
-df4  = pd.read_csv('codes_cntr.csv')
-df11 = pd.read_csv('wineries.csv')
+df     = pd.read_csv('winedata.csv')
+df4    = pd.read_csv('codes_cntr.csv')
+df11   = pd.read_csv('wineries.csv')
+df_msk = pd.read_csv('msk_data.csv')
 
 with st.echo(code_location='below'):
 
@@ -683,29 +684,6 @@ with st.echo(code_location='below'):
     # part of code is in wineries_start.py
 
     gdf1   = gpd.GeoDataFrame(df11, geometry = gpd.points_from_xy(df11['coordinates_lon'], df11['coordinates_lat']))
-
-    with open('Moscow.geojson', encoding = 'utf-8') as f:
-        moscow = json.load(f)
-
-    coord_list = []
-
-    for objj in moscow['features']:
-        objj_list = []
-
-        for obj in objj['geometry']['coordinates'][0][0]:
-            objj_list.append(tuple(obj))
-
-        coord_list.append(objj_list)
-
-    with open('Moscow.geojson', encoding='utf-8') as f:
-        moscow = json.load(f)
-
-    df_msk = pd.DataFrame(columns = ['id', 'name', 'poly'])
-
-    for i in range(125):
-        df_msk.loc[len(df_msk.index)] = [moscow['features'][i]['properties']['cartodb_id'],
-                                         moscow['features'][i]['properties']['name'], Polygon(coord_list[i])]
-
 
     gdf2 = gpd.GeoDataFrame(df_msk, geometry = 'poly')
 
