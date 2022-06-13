@@ -8,10 +8,6 @@ import statsmodels.api         as sm
 import matplotlib.pyplot       as plt
 import plotly.graph_objects    as go
 import streamlit.components.v1 as components
-import shapely.geometry
-import requests
-import circlify
-import sqlite3
 import folium
 import json
 import re
@@ -21,14 +17,14 @@ from sklearn.neighbors       import KNeighborsRegressor
 from shapely.geometry        import Polygon, Point
 from streamlit_folium        import folium_static
 from pyvis.network           import Network
-from bs4                     import BeautifulSoup
 
 
 
 
 
-df = pd.read_csv('winedata.csv')
-df4 = pd.read_csv('codes_cntr.csv')
+
+df   = pd.read_csv('winedata.csv')
+df4  = pd.read_csv('codes_cntr.csv')
 df11 = pd.read_csv('wineries.csv')
 
 with st.echo(code_location='below'):
