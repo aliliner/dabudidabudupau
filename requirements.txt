@@ -12,9 +12,6 @@ shapely
 requests
 circlify
 folium
-scrapy
-re
 sklearn
 streamlit_folium
-pyvis     
-bs4
+pyvis
