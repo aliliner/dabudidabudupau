@@ -687,11 +687,11 @@ with st.echo(code_location='below'):
     # Moscow geojson and work with it is in wineries_start.ry
 
     for i in range(125):
-        df_msk['polygon'] = shapely.wkt.loads(df_msk['poly'][i])
+        df_msk['poly'][i] = shapely.wkt.loads(df_msk['poly'][i])
 
 
-    gdf2 = gpd.GeoDataFrame(df_msk, geometry = 'polygon')
-
+    gdf2 = gpd.GeoDataFrame(df_msk, geometry = 'poly')
+    
     gdf3 = gdf1.sjoin(gdf2, how = "right", predicate = 'intersects')
     gdf3 = gpd.GeoDataFrame(gdf3[['id', 'name','properties.name','properties.description', 'properties.CompanyMetaData.address', 'properties.CompanyMetaData.Hours.text',  'coordinates_lon','coordinates_lat']],
                             geometry = gpd.points_from_xy(gdf3['coordinates_lon'], gdf3['coordinates_lat']))
