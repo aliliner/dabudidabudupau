@@ -35,3 +35,27 @@ df11 = df11[['properties.name', 'geometry.type', 'geometry.coordinates', 'proper
 df11[['coordinates_lon', 'coordinates_lat']] = df11['geometry.coordinates'].apply(pd.Series)
 
 df11.to_csv('wineries.csv', index = False, encoding = 'utf-8-sig')
+
+
+with open('Moscow.geojson', encoding = 'utf-8') as f:
+    moscow = json.load(f)
+
+coord_list = []
+
+for objj in moscow['features']:
+    objj_list = []
+
+    for obj in objj['geometry']['coordinates'][0][0]:
+        objj_list.append(tuple(obj))
+
+    coord_list.append(objj_list)
+
+with open('Moscow.geojson', encoding='utf-8') as f:
+    moscow = json.load(f)
+
+df_msk = pd.DataFrame(columns = ['id', 'name', 'poly'])
+for i in range(125):
+    df_msk.loc[len(df_msk.index)] = [moscow['features'][i]['properties']['cartodb_id'],
+                                     moscow['features'][i]['properties']['name'], Polygon(coord_list[i])]
+    
+df_msk.to_csv('msk_data.csv', index = False, encoding = 'utf-8-sig')
