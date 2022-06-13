@@ -27,9 +27,9 @@ from bs4                     import BeautifulSoup
 
 
 
-df = pd.read_csv(r'C:\Users\lizzie\Desktop\winedata.csv')
-df4 = pd.read_csv(r'C:\Users\lizzie\Desktop\codes_cntr.csv')
-df11 = pd.read_csv(r'C:\Users\lizzie\Desktop\wineries.csv')
+df = pd.read_csv('winedata.csv')
+df4 = pd.read_csv('codes_cntr.csv')
+df11 = pd.read_csv('wineries.csv')
 
 with st.echo(code_location='below'):
 
