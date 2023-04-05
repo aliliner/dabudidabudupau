@@ -1,6 +1,6 @@
 numpy
 pandas
-networkx
+networkx 
 streamlit
 geopandas
 plotly.express
