@@ -1,8 +1,8 @@
 pandas
+networkx
 streamlit
 numpy
 pandas
-networkx
 streamlit
 plotly
 statsmodels
