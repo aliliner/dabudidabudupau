@@ -3,6 +3,7 @@ streamlit
 numpy
 pandas
 networkx
+networkx
 streamlit
 plotly
 statsmodels
