@@ -5,13 +5,10 @@ streamlit
 geopandas
 plotly.express
 statsmodels
-statsmodels.api 
+statsmodels.api
 matplotlib
-plotly.graph_objects
 plotly
-streamlit.components.v1
 shapely
-shapely.geometry
 re
 requests
 circlify
